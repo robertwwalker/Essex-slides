@@ -1,2 +1,3 @@
 # Essex-slides
-Slides for Essex 3K
+
+This repository contains the slides for **Essex 3K: Dynamics and Heterogeneity**.
