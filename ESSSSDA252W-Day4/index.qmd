@@ -1,66 +1,30 @@
 ---
 title: "Day 4: Cointegration"
 author: "Robert W. Walker"
-date: "August 11, 2022"
-output:
-  xaringan::moon_reader:
-    css: xaringan-themer.css
-    nature:
-      slideNumberFormat: "%current%"
-      highlightStyle: github
-      highlightLines: true
-      ratio: 16:9
-      countIncrementalSlides: true
-      beforeInit: "https://platform.twitter.com/widgets.js"
-
+date: "July 23, 2025"
+format: 
+   revealjs:
+     theme: [custom.scss]
+     scrollable: true
+     logo: AGSMlogo.jpeg
+     footer: "ESSSSDA25-2W: Heterogeneity and Dynamics"
+     self-contained: true
+     html-math-method: katex
+     incremental: true
+     slide-number: c/t
+     transition: zoom
+     preview-links: true
 ---
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
-  fig.width=9, fig.height=3.5, fig.retina=3,
-  out.width = "100%",
   cache = FALSE,
   echo = TRUE,
   message = FALSE, 
   warning = FALSE,
   hiline = TRUE
 )
-```
-
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, comment=NA, prompt=FALSE, fig.height=6, fig.width=6.5, fig.retina = 3, dev = 'svg', dev.args = list(bg = "transparent"))
 library(xaringanthemer); library(kableExtra); library(tidyverse); library(skimr)
-# style_mono_accent(
-style_duo_accent(
-#style_solarized_light(
-primary_color = "#371142", 
-# header_color = "#ffffff",
-          secondary_color = "#1c5253", 
-          text_bold_color = "#FF00FF",
-          link_color = "#F97B64",
-          text_font_google   = google_font("EB Garamond"),
-          code_font_google   = google_font("Fira Mono")
-)
-```
-
-```{css, echo = FALSE, include=FALSE}
-.remark-slide-content p, il, ol, li {
-  font-size: 32px;
-  padding: 8px 16px 8px 16px;
-}
-code.r{
-  font-size: 18px;
-}
-pre {
-  font-size: 24px;
-}
-.red { 
-  color: red; 
-}
-.green { 
-  color: green; 
-}
 ```
 
 ## On Reduced and Structural Forms and Systems of Equations
@@ -68,19 +32,15 @@ pre {
 What are structural forms and what are reduced forms?
 Are we familiar with what the \emph{rank} and \emph{order} conditions are?
 
----
 
 ## Systems of Simultaneous Equations
 
 Which beg questions about identification as above.  Let's briefly discuss the system that they present.
 
----
 
 ## Vector AutoRegression
 
 Choose a relevant set of lag lengths and write each variable in the system as a function of lags of itself and other variables to the chosen lengths.  The key insight is that this VAR is the reduced form to some more complicated as yet unspecified structural form.  But if the goal is to specify how variables related to one another and to use data to discover Granger causality and responses to impulse injected in the system.
-
----
 
 ## On Granger Causation
 
@@ -92,43 +52,61 @@ Granger causation\footnote{In the remainder of this discussion, when I use the w
 
 Matching the theoretical claim and the empirical analysis here, like everywhere else, is absolutely crucial.  Also, in some ways, this is just our earliest ANOVA example but now we will use the lags of the dependent variable to establish the alternative hypotheses.
 
----
-
 ## Implementation
-
 
 - Look at stationarity.  We want to make certain that this holds.
 - Test a hypothesis, many forms can be implied.
 
 Conditional on stationarity, the procedure goes like this.  For example, to test the hypothesis that, for all $i$, $x$ does not Granger cause $y$, we choose a lag length, call it $k$.  We then regress lags of $y$ and $k$ lags of $x$ on $y$ in a model with unit specific slopes and unit specific intercepts.  We do not include contemporaneous $x$ because Granger causality is all about temporal priority.  This is the unrestricted model.  The hypothesis implies the restriction that all the coefficients on all of the lagged $x$ are zero for each cross-section and for all $k$ lags of $x$.
 
----
+##
 
 In other words, the unrestricted model is:
 $$y_{it} = \rho_{i,1} y_{i,t-1} + \rho_{i,2} y_{i,t-2} + \ldots + \rho_{i,m} y_{i,t-m} + \beta_{i,1} x_{i,t-1} + \ldots + \beta_{i,k} x_{i,t-k} + \epsilon_{it}$$ while the restricted model is
 $$y_{it} = \rho_{i,1} y_{i,t-1} + \rho_{i,2} y_{i,t-2} + \ldots + \rho_{i,m} y_{i,t-m} + \epsilon_{it}$$
 because the null hypothesis implies that all the $\beta$ are zero for all lags $t-1$ to $t-k$ lags of $x$.
 
----
-
 ## Backfilling the Lagged Dependent Variable problem
 
 Let's analyse this.  This will preview dynamic interpretation in panel settings also.  The long-run multiplier.
 
----
-
 ## Let's Talk about simultaneous equations and systems of equations.
 
-[Stationarity](https://rww.science/xaringan/ch9ha/#56)
-[Invertibility](https://rww.science/xaringan/ch9ha/#63)
+## Stationarity conditions
 
----
+We normally restrict autoregressive models to stationary data, and then some constraints on the values of the parameters are required.
+
+### General condition for stationarity
+
+Complex roots of $1-\phi_1 z - \phi_2 z^2 - \dots - \phi_pz^p$ lie outside the unit circle on the complex plane.
+
+* For $p=1$: $-1<\phi_1<1$.
+* For $p=2$:\newline $-1<\phi_2<1\qquad \phi_2+\phi_1 < 1 \qquad \phi_2 -\phi_1 < 1$.
+* More complicated conditions hold for $p\ge3$.
+* Estimation software takes care of this.
+
+## Invertibility
+
+* Any MA( $q$ ) process can be written as an AR( $\infty$ ) process if we impose some constraints on the MA parameters.
+* Then the MA model is called "invertible".
+* Invertible models have some mathematical properties that make them easier to use in practice.
+* Invertibility of an ARIMA model is equivalent to forecastability of an ETS model.
+
+## Invertibility
+
+General condition for invertibility:
+  Complex roots of $1+\theta_1 z + \theta_2 z^2 + \dots + \theta_qz^q$ lie outside the unit circle on the complex plane.
+
+
+* For $q=1$: $-1<\theta_1<1$.
+* For $q=2$: $$-1<\theta_2<1 \qquad \theta_2+\theta_1 >-1 \qquad \theta_1 -\theta_2 < 1$$
+* More complicated conditions hold for $q\ge3$.
+* Estimation software takes care of this.
+
 
 ## On Equilibrium
 
 What does equilibrium mean?  Equilibration?
-
----
 
 ## Cointegration
 
@@ -136,22 +114,17 @@ What does equilibrium mean?  Equilibration?
 - Is premised on a dynamic system of sorts.
 - The idea was largely responsible for winning Clive Granger the Nobel.
 
----
 
 ## Cointegration: The Practice
 
 We begin with a need for nonstationary data.  If the data were stationary, they are **self-equilibrating**.
 
----
 
 ## Cointegration: The Criteria
 
 - Some linear combination must yield a stationary series.
 - Variables must be integrated of the same order.
 - With more than two variables, there can be multiple cointegrating vectors linking sets of variables.
-
-
----
 
 ## Cointegration: The Process
 
@@ -170,13 +143,11 @@ $$\Delta y_{t} = \alpha + \gamma_{yx} \hat{\epsilon_{t-1}} + G + \epsilon{Cy}$$
 where G is the set of appropriate lagged differences in an OLS VAR [an aside on instrumental variables here]
 - Assess model adequacy.
 
----
 
 ## Multiple Cointegrating Vectors: Johansen
 
 The VECM or Vector Error Correction Model
 
----
 
 ## Non-integrated ECM?
 
