@@ -143,7 +143,9 @@ $$y_{t} = \alpha + \gamma_{1}y_{t-1} + \beta_{0} X_t + \beta_{1}X_{t-1} + \beta_
 - The authors argue that the lagged dependent variable often yields white noise for free.  As they also note, there is a deBoef and Keele paper showing the relationship between these models and a form of error correction models.  More on that tomorrow.
 - There is substance to the timing of impacts.
 
+## A Cottage Industry of ADL's
 
+As recently as April of 2025, a paper appeared in the *Journal of Politics* advocating the use of ADL(2,2).  The paper, by Kagalwala and Whitten, called **The Answer was There All Along: Worry about the dynamics!**. A previous argument was made for the ADL(1,1).
 
 ## Structural vs. Non-structural
 
