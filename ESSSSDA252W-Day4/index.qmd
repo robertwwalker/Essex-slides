@@ -8,6 +8,8 @@ format:
      scrollable: true
      logo: AGSMlogo.jpeg
      footer: "ESSSSDA25-2W: Heterogeneity and Dynamics"
+     multiplex:
+       url: 'https://multiplex-5adl.onrender.com'
      self-contained: true
      html-math-method: katex
      incremental: true
