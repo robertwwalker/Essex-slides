@@ -1,7 +1,7 @@
 ---
 title: "Does Preferential Hiring Compromise Merit?"
 subtitle: "Assumption-Free Exact Matching Inference in a Large Population of Data"  
-author: "Robert W. Walker and Tim Johnson"
+author: "Robert W. Walker and Tim Johnson (AGSM/Willamette)"
 date: "July 30, 2025"
 format: 
    revealjs:
@@ -24,6 +24,15 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE, comment=NA, promp
 library(tidyverse)
 library(kableExtra)
 ```
+
+## A Personal Note
+
+Thank to Royce, Ryan, Carolina, Alex, and everyone involved that decided to honor Harold with this series; it is a testament to him, his contributions to Essex, the Summer School, and the discipline and to what great people you all are.
+
+![](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3enA3YWN2eno3ZXg0cnNtcnc2azV5dzkxZ2k2ZXBvbGFwd2lmaGEyYyZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/NsFDCblOHz9QI/giphy.gif)
+
+- Harold was my teacher, my friend, one of my mentors, my co-teacher, my collaborator, and the reason, quite literally, that I became a political scientist.  I am honored to give this.  I hope he would approve.....  
+
 
 # Does Preferential Hiring Compromise Merit?
 
@@ -81,20 +90,18 @@ In various forms for almost a century, Miller (1935), Ordway (1945), Lewis (2012
 
 ## Related Literature
 
-Lewis 2012: 247: ``Federal personnel data for the past decade show that veteran new hires are older and less educated than nonveteran new hires, and that they do not advance as far in the first 15 years of their careers as nonveterans hired into the same grades at the same time, suggesting that veterans’ preference may be lowering the performance of the federal civil service.''
+- Lewis 2012: 247: ``Federal personnel data for the past decade show that veteran new hires are older and less educated than nonveteran new hires, and that they do not advance as far in the first 15 years of their careers as nonveterans hired into the same grades at the same time, suggesting that veterans’ preference may be lowering the performance of the federal civil service.''
 
-## The Latter Claim is Dubious
-
-Elsewhere, Johnson and Walker (2018) uses pay grade and pay increase data to show equivalent advancement tendencies for preference recipients and non-recipients when entry positions are rendered comparable.
+- Johnson and Walker (2018) uses pay grade and pay increase data to show equivalent advancement tendencies for preference recipients and non-recipients when entry positions are rendered comparable.
 
 ## The Data
 
-Unlike the 1% samples, in the summer of 2009, the National Archives and Records Administration (NARA) released a copy of the U.S. Office of Personnel Management's (OPM) Central Personnel Data File (CPDF) under a FOIA filed by Tim Johnson. This copy of the CPDF contained all non-sensitive employee records from 1973 to 1997.  The data are a **person-year** panel with 3.7 million individual persons.
+Unlike the 1% samples, in the summer of 2009, the National Archives and Records Administration (NARA) released a copy of the U.S. Office of Personnel Management's (OPM) Central Personnel Data File (CPDF) under a FOIA filed by Tim Johnson. This copy of the CPDF contained **all non-sensitive employee records from 1973 to 1997**.  The data are a **person-year** panel with 3.7 million individual persons.
 
 ## Key Variables
 
-+ Education: takes one of 22 [increasing] ordered values
-+ Veterans' Preference: Six categories collapsed to four.
++ **Education: takes one of 22 [increasing] ordered values**
++ **Veterans' Preference: Six categories collapsed to four.**
   1. non-recipient of preference (i.e. 0-point preference); 
   2. veteran receiving 5-point preference; 
   3. veteran securing 10-point preference because of a service-connected disability or receipt of a Purple Heart; 
@@ -162,7 +169,9 @@ This yields 3.8 million employees in their first year of service.[^1]
 
 ## The Precise Question
 
-Our counterfactual of interest, defined by the job as opposed to the person, is, **``had veterans’ preference not played a role in installing the job’s incumbent, how would educational attainment differ for the holder of that job?''**
+Our counterfactual of interest is defined by the job as opposed to the person. 
+
+- **Had veterans’ preference not played a role in installing the job’s incumbent, how would educational attainment differ for the holders of that job?**
 
 ## Jobs as Years of Entry
 
@@ -175,7 +184,9 @@ Our counterfactual of interest, defined by the job as opposed to the person, is,
 ::: {.column width="50%"}
 With caveats, when we retain all data, the conventional wisdom mostly holds though 10 point preference recipients are much higher in 1979 and 1980.
 
-**But... year doesn't seem like the best descriptor of a job.**
+*But... year doesn't seem like the best descriptor of a job.*
+
+**And year is the only variable that retains ALL data**
 :::
 
 ::::
