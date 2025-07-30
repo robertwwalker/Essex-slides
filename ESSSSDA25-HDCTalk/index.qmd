@@ -282,4 +282,4 @@ A DEI policy that has no discernible impacts on key elements of expected job per
 
 ![Results](./img/LLMTab.jpg)
 
-# We would be unwise to trust this task to AI...
+# We would be unwise to trust this task to AI..
