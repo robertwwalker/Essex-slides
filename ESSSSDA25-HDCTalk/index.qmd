@@ -55,7 +55,7 @@ Thank you to Royce, Ryan, Carolina, Alex, and everyone involved in honoring Haro
 
 Managers fear that the preferential hiring of military veterans leads to the selection of employees who score worse on merit criteria. Using *all non-classified records* in the U.S. federal government's **Central Personnel Data File from 1973-1997**, we compare the educational backgrounds of employees who received veterans' preference benefits with the educational backgrounds of employees who did not receive veterans' preference.
 
--   This is timely given what is happening among federal employees.
+-   This is timely given what is happening among federal employees.  Hiring preferences are under assault by innuendo.
 
 
 ## What We're Up To
@@ -64,7 +64,7 @@ We eliminate uncertainty due to sampling variation with the population of *uncla
 
 -   Replicate prior evidence and media accounts that preference beneficiaries possess weaker educational credentials than non-recipients.
 
--   Then we make this relationship disappear---and, in some instances, invert---when we account for employees' occupations and work circumstances using exact stratification.
+-   Make this relationship disappear---and, in some instances, invert---when we account for employees' occupations and work circumstances, their **jobs**, using exact stratification.
 
 -   **Takeaway: The assessment of perceptions of hiring quality requires careful attention to the appropriate basis for comparing employees. Ending veterans preference because of differences in career trajectories or educational attainment is empirically unjustifiable.**
 
@@ -110,7 +110,7 @@ In various forms for almost a century, Miller (1935), Ordway (1945), Lewis (2012
 
 ## The Data
 
-Unlike the 1% samples, in the summer of 2009, the National Archives and Records Administration (NARA) released a copy of the U.S. Office of Personnel Management's (OPM) Central Personnel Data File (CPDF) under a FOIA filed by Tim Johnson. This copy of the CPDF contained **all non-sensitive employee records from 1973 to 1997**. The data are a **person-year** panel with 3.7 million individual persons.
+Unlike the 1% samples, in the summer of 2009, the National Archives and Records Administration (NARA) released a copy of the U.S. Office of Personnel Management's (OPM) Central Personnel Data File (CPDF) under a FOIA filed by Tim Johnson. This copy of the CPDF contained **all non-sensitive employee records from 1973 to 1997**. The data are a **person-year** panel with more than 3.8 million individual persons.
 
 ## Key Variables
 
@@ -130,7 +130,7 @@ Past scholarship has claimed that veterans’ preference lowers the educational 
 
 This yields 3.8 million employees in their first year of service.[^1]
 
-[^1]: We cannot determine, for 1973, whether someone started before that or in that year with our data. Thus, we focus only on employees with a first year of federal service in 1974 or after.
+[^1]: We cannot determine, for 1973, whether someone started before that or in that year with our data. Thus, we focus only on employees with a first year of federal service in 1974 or after.  **We can only use 3.8 million people.**
 
 ## The Empirics of Veterans' Preference and Education
 
@@ -159,14 +159,16 @@ The data are ordered; metric statistics are less than ideal. The Wilcoxon rank-s
 -   The exact distribution is preferred.
     -   Can't compute it for the huge stratum
 -   So we simulate with 1 million permutations for each stratum.
-    -   Here we invoke a root-n argument to approximate p-values to within 0.001 with which to form distributions over strata.
+    -   Then we invoke a root-n argument to approximate p-values to within 0.001 with which to form distributions over strata relying on asymptotic normality.
     -   It's really important to emphasise that those *p-values* are an empirical probability measure because we have a population and some foundational inferential statistical issues are messy in this very unique example.
 
 ## The Conventional Wisdom
 
 ![Table 2](./img/Table2.png)
 
--   Enormous t-statistics/Wilcoxon z-statistics.
+- Negative signs -> preference recipients are lower
+- Positive signs -> preference recipients are higher.
+-   Enormous **negative** t-statistics/Wilcoxon z-statistics.
 -   Preference recipients have lower levels of education.
 
 ## The Critical Issue: Whom to Compare?
@@ -234,22 +236,22 @@ Notes: The y-axis is censored at 200. The result from this is the top row of the
 
 ## All Definitions of Jobs
 
-![All Results](./img/TableLast.png){width="90%" height="90%"}
+![[All Results](./img/TableLast.png)](./img/TableLast.png){width="90%" height="90%"}
 
 -   **Grey and black cells contain greater than 20% with p-values less than 0.05.**
 -   **Italics and bold represent p\<0.05 in the omnibus column.**
 
 ## Discussion
 
-Prior evidence has led to what Pearl (2012, 176) calls a `distorted causal interpretation`. The broad universal association is quite different than the conditional associations when the job becomes the counterfactual. Though it is claimed that any deviations from merit screening permit less-qualified individuals to enter the federal service, merit screening is only one of many filters.
+- Prior evidence has led to what Pearl (2012, 176) calls a `distorted causal interpretation`. The broad universal association is quite different than the conditional associations when the job becomes the counterfactual. Though it is claimed that any deviations from merit screening permit less-qualified individuals to enter the federal service, merit screening is only one of many filters.
 
-On balance, we find very little evidence that veterans' preference worsens the educational attainment of job incumbents.
+- On balance, we find very little evidence that veterans' preference worsens the educational attainment of job incumbents.
 
-How could we account for the finding that veterans receiving preference appear to possess equal or greater education in many cases? The GI Bill comes to mind.
+- **How could we account for the finding that veterans receiving preference appear to possess equal or greater education in many cases? The GI Bill comes to mind.**
 
 ## Big Picture
 
-**Ala Pearl's discussion of Simpson's Paradox, given that veterans' preference accrues to veterans that have access to educational benefits, it is quite easy to see how a relationship in the aggregate showing lower levels of education among preference recipients should fail to replicate for at least some jobs if veterans distribute themselves across occupations differently than nonveterans and veteran status correlates with potential educational benefits.**
+*Ala Pearl's discussion of Simpson's Paradox, given that veterans' preference accrues to veterans that have unique access to educational benefits, it is quite easy to see how a relationship in the aggregate showing lower levels of education among preference recipients should fail to replicate for at least some jobs if veterans distribute themselves across occupations differently than nonveterans and veteran status correlates with potential educational benefits.*
 
 # Punchline
 
