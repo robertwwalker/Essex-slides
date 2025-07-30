@@ -522,7 +522,7 @@ We saw fixed and random effects.  The basic idea generalizes to regression coeff
 - Random Coefficients Specifications (Swamy 1970)
   
 $$y_{it}  =  \alpha +  (\overline{\beta} + \mu_{i})X_{it} + \epsilon_{it}$$
-$$\mathbb{E}[\alpha_{i}]  =  0; \mathbb{E}[\alpha_{i} X_{it}]=0$$
+$$\mathbb{E}[\mu_{i}]  =  0; \mathbb{E}[\mu_{i} X_{it}]=0$$
 $$\mathbb{E}[\alpha_{i}\alpha_{j}]  =  
     \begin{cases}
   \Delta & \text{if } i = j \\
