@@ -32,7 +32,9 @@ library(kableExtra)
 1. TWFE
 1. Causal Inference in Panel Data
 
+## On Diff in Diff
 
+A very useful paper I just ran across on Andrew Baker's website.  The Box note cites a post but he took his netlify site down.  [This paper](https://andrew-charles-baker.github.io/research/working_papers/jel/) is a really nice practical introduction.
 
 ## The Data for Implementation of GMM
 
@@ -431,8 +433,13 @@ DiD as the double difference [from Andrew C. Baker](https://andrewcbaker.netlify
 > implicitly compare treated and control observations to draw causal inference. By establishing
 > the equivalence between matching and weighted fixed effects estimators, this framework
 > enables a diverse set of identification strategies to adjust for unobservables provided that
-> the treatment and outcome variables do not influence each other over time. \end{quotation}
+> the treatment and outcome variables do not influence each other over time. 
 
+## Wooldridge
+
+Two-way fixed effects works quite well so long as we are careful about what we measure and what the fixed effects capture.
+
+Let's focus on 3.3.
 
 ## Some Concluding Remarks
 
@@ -447,6 +454,7 @@ Findings may not be at all robust.
 
 
 ## My Own View
-My own view of this, to borrow a phrase but use it a bit differently than the original authors, is to think of models as treatments with our data as the subject.  We make one set of assumptions and we treat our subject.  Change that around a bit and treat again.  Do it a third time and so on and so on.  In the end, we have sets of models related by subtle differences in assumptions about the process that generated the data and estimates obtained across models toward this end.  Our inferential process should be inherently Bayesian in the sense that we update the strength of conclusions on the basis of findings differing in predictable ways given these differing sets of assumptions. \newline \newline
+
+My own view of this, to borrow a phrase but use it a bit differently than the original authors, is to think of models as treatments with our data as the subject.  We make one set of assumptions and we treat our subject.  Change that around a bit and treat again.  Do it a third time and so on and so on.  In the end, we have sets of models related by subtle differences in assumptions about the process that generated the data and estimates obtained across models toward this end.  Our inferential process should be inherently Bayesian in the sense that we update the strength of conclusions on the basis of findings differing in predictable ways given these differing sets of assumptions. 
 
 **There is no single right model or magic bullet for diagnosing an unknown data generating process.**
