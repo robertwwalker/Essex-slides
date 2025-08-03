@@ -441,6 +441,27 @@ Two-way fixed effects works quite well so long as we are careful about what we m
 
 Let's focus on 3.3.
 
+## A brief review of Mundlak
+
+As typically written, the Mundlak estimator is presented [by Baltagi and Mundlak] as a random effects regression that must satisfy the random effects moment condition, e.g. $\mathbb{E}(\alpha_{i}X_{it}) = 0$ by including regressors capturing the time invariant unit averages.  The regression is (with K regressors):
+
+$$y_{it} = X_{it}\beta + \overline{x}_{i}\beta_{k} + (\alpha_{i} + \epsilon_{it})
+$$
+
+where the parenthetical is the resultant error term consisting of the unit random effects and the IID error.  The general idea is to simply include the between information that could be correlated with the `fixed effects` [in econometrics language].  Mundlak shows we recover the `fixed effects` or within estimator from $\beta$.
+
+## Two Way Mundlak
+
+Baltagi's equation 8 [or Wooldridge 2021]
+
+$$
+y_{it} = X_{it}\beta + \overline{x}_{i}\beta_{i} + \overline{x}_{t}\beta_{t} + (\alpha_{i} + \alpha_{t} + \epsilon_{it})
+$$
+
+Baltagi's discussion on page 8 shows F tests of the unit or time averages [or both] can be used to examine whether it is the time-averaged or unit-averaged, or both, that violate the random effects moment conditions we impose.
+
+The major contribution of Wooldridge and Baltagi is to show that OLS applied to this problem is equivalent to GLS estimation.
+
 ## Some Concluding Remarks
 
 Plumper, et. al. 2005 point out that specification issues matter, alot.
